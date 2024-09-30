@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.underline-custom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px; /* Регулирует отступ от текста */
+  width: 100%;
+  height: 1px; /* Толщина линии */
+  background-color: black; /* Цвет линии */
+}
+.trait::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 40px;
+  height: 2px;
+  background-color: #919191;
+  transform: rotate(-28deg);
+}
+
+.custom-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+
+  background-color: white;
+  position: relative;
+  border-radius: 50%;
+}
+
+.custom-checkbox:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-group {
+  display: flex;
+  gap: 40px;
+}
+
+.custom-radio {
+  display: flex;
+  color: #ffffffcc;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 10px;
+  gap: 6px;
+}
+
+.radio-circle {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ffffffcc;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  transition: border-color 0.3s;
+  opacity: 0.5;
+}
+
+.radio-circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.custom-radio input:checked + .radio-circle {
+  border-color: white; /* Белый цвет при выборе */
+  opacity: 1;
+}
+
+.custom-radio input:checked + .radio-circle::after {
+  opacity: 1; /* Показываем внутренний круг при выборе */
+}
+
+.custom-radio input:checked ~ .radio-label {
+  color: white; /* Белый цвет текста при выборе */
+  opacity: 1;
+}
+
+.radio-label {
+  color: #ffffffcc; /* Изначально светло-серый текст */
+  transition: color 0.3s;
+  opacity: 0.5;
+}
+
+@font-face {
+  font-family: "RFDewi";
+  src:
+    url("/fonts/RFDewi-Regular.woff2") format("woff2"),
+    url("/fonts/RFDewi-Regular.woff") format("woff"),
+    url("/fonts/RFDewi-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RFDewi";
+  src:
+    url("/fonts/RFDewi-Semibold.woff2") format("woff2"),
+    url("/fonts/RFDewi-Semibold.woff") format("woff"),
+    url("/fonts/RFDewi-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RFDewi";
+  src:
+    url("/fonts/RFDewi-SemiboldItalic.woff2") format("woff2"),
+    url("/fonts/RFDewi-SemiboldItalic.woff") format("woff"),
+    url("/fonts/RFDewi-SemiboldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "RFDewi";
+  src:
+    url("/fonts/RFDewi-Ultrabold.woff2") format("woff2"),
+    url("/fonts/RFDewi-Ultrabold.woff") format("woff"),
+    url("/fonts/RFDewi-Ultrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DrukCyr";
+  src:
+    url("/fonts/drukwidecyr-bold.woff2") format("woff2"),
+    url("/fonts/drukwidecyr-bold.woff") format("woff"),
+    url("/fonts/drukwidecyr-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NotoSerifDisplay";
+  src: url("/fonts/NotoSerifDisplay-Italic-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900; /* Укажите диапазон веса, если шрифт его поддерживает */
+  font-stretch: 75% 125%; /* Укажите диапазон ширины, если шрифт его поддерживает */
+  font-style: italic; /* Поскольку это италик начертание */
+}
+
+@font-face {
+  font-family: "DotGothic";
+  src: url("/fonts/DotGothic16-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
