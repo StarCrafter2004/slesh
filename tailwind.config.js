@@ -7,6 +7,8 @@ module.exports = {
         back2: "url('/img/first_bg_mob.png')",
         from_human: "url('/img/from_human.png')",
         high: "url('/img/high.png')",
+        free: "url('img/free.png')",
+        footer_bg: "url('img/footer.png')",
       },
       fontFamily: {
         rfdewi: ["RFDewi"],

@@ -117,7 +117,53 @@
   font-weight: 400;
   font-style: normal;
 }
+.accordeon_plus::after {
+  content: "";
+  width: 100%;
+  background-color: #f7f7f7;
+  height: 1px;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+}
 
+.accordeon_plus::before {
+  top: 0;
+  left: 50%;
+  content: "";
+  width: 1px;
+  background-color: #f7f7f7;
+  height: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.accordeon_plus.active::before {
+  transform: rotate(90deg);
+}
+
+.swiper-pagination-progressbar-fill-custom {
+  background: #7f7f7f;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  transform-origin: left top;
+}
+
+.swiper-pagination {
+  background-color: #404040 !important;
+  /* Задайте желаемый цвет фона */
+}
+
+.swiper-pagination-progressbar {
+  height: 1px !important; /* Установите нужную высоту */
+}
 @font-face {
   font-family: "RFDewi";
   src:
@@ -126,6 +172,13 @@
     url("/fonts/RFDewi-Semibold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+
+.swiper-slide.teach {
 }
 
 @font-face {
