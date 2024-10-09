@@ -18,6 +18,7 @@ module.exports = {
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
       se: { max: "359px" }, // Брекпоинт активируется для экранов 359px и ниже
+      bm: "400px",
     },
     extend: {
       backgroundImage: {
@@ -53,6 +54,9 @@ module.exports = {
         gray09: "#B4B4B4",
         semywhite: "#FFFFFFCC",
         placeholder_text: "#F7F7F780",
+        mentor_bg: "#1C1C1C",
+        mentor_block: "#282828",
+        blocks_mob: "#1F1F1F",
       },
       backgroundPosition: {
         "bg-offset": "calc(50% + 100px) calc(50% - 170px)", // Смещение на 100px вправо и 100px вверх

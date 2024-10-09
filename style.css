@@ -164,6 +164,24 @@
 .swiper-pagination-progressbar {
   height: 1px !important; /* Установите нужную высоту */
 }
+
+.content {
+  position: relative; /* Для размещения содержимого поверх фона */
+  z-index: 1; /* Убедитесь, что контент поверх размытого фона */
+  color: white; /* Цвет текста */
+  padding: 20px; /* Отступы для содержимого */
+}
+
+.header {
+  width: calc(100% - 28px);
+}
+.swiper-pagination {
+  width: calc(100% - 30px) !important;
+}
+
+.animated-block.deactive {
+}
+
 @font-face {
   font-family: "RFDewi";
   src:
