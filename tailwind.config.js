@@ -15,10 +15,9 @@ module.exports = {
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      "2xl": "1536px",
+      "2xl": "1440px",
       // => @media (min-width: 1536px) { ... }
       se: { max: "359px" }, // Брекпоинт активируется для экранов 359px и ниже
-      bm: "400px",
     },
     extend: {
       backgroundImage: {
@@ -57,11 +56,18 @@ module.exports = {
         mentor_bg: "#1C1C1C",
         mentor_block: "#282828",
         blocks_mob: "#1F1F1F",
-      },
-      backgroundPosition: {
-        "bg-offset": "calc(50% + 100px) calc(50% - 170px)", // Смещение на 100px вправо и 100px вверх
+        upgrade_whyte: "#F3F3F3",
+        gray10: "#C7C7C7",
       },
     },
+  },
+  gridTemplateColumns: {
+    // Simple 16 column grid
+    cv_2lx: "repeat(2, minmax(0, 1fr)) 480px",
+    cv_xl: "repeat(2, minmax(0, 1fr)) 480px",
+    cv_lg: "repeat(2, minmax(0, 1fr)) 480px",
+    cv_md: "repeat(2, minmax(0, 1fr)) 480px",
+    cv_sm: "repeat(2, minmax(0, 1fr)) 480px",
   },
   plugins: [],
 };

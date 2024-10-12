@@ -38,18 +38,50 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  var teachSlider = new Swiper(".teach_slider", {
-    slidesPerView: "auto" /* Позволяет использовать ширину слайда как в CSS */,
-    spaceBetween: 20 /* Отступ между слайдами */,
-    centeredSlides: false /* Отключение автоматического центрирования слайдов */,
-    loop: false /* Оставляем как пример: не включать зацикливание */,
-  });
-  var teachSlider = new Swiper(".case_slider", {
-    slidesPerView: "auto" /* Позволяет использовать ширину слайда как в CSS */,
-    spaceBetween: 20 /* Отступ между слайдами */,
-    centeredSlides: false /* Отключение автоматического центрирования слайдов */,
-    loop: false /* Оставляем как пример: не включать зацикливание */,
-  });
+  // слайдер с менторами
+
+  setTimeout(() => {
+    const initSliderOpacity = (slides) => {
+      slides.forEach((slide) => {
+        slide.style.opacity = 0.7;
+      });
+    };
+
+    const changeOpasity = (e, slides) => {
+      console.dir(e.activeIndex);
+      console.log("Слайд1 " + teachSlides[1]);
+      initSliderOpacity(slides);
+      slides[e.activeIndex].style.opacity = 1;
+    };
+
+    const teachSlides = document.querySelectorAll(".mentor-slide");
+    const caseSlides = document.querySelectorAll(".case-slide");
+    initSliderOpacity(teachSlides);
+    initSliderOpacity(caseSlides);
+    teachSlides[0].style.opacity = 1;
+    caseSlides[0].style.opacity = 1;
+
+    var teachSlider = new Swiper(".teach_slider", {
+      slidesPerView:
+        "auto" /* Позволяет использовать ширину слайда как в CSS */,
+      spaceBetween: 20 /* Отступ между слайдами */,
+      centeredSlides: false /* Отключение автоматического центрирования слайдов */,
+      loop: false /* Оставляем как пример: не включать зацикливание */,
+      watchOverflow: true,
+      slidesOffsetAfter: 1500,
+    });
+    var caseSlider = new Swiper(".case_slider", {
+      slidesPerView:
+        "auto" /* Позволяет использовать ширину слайда как в CSS */,
+      spaceBetween: 20 /* Отступ между слайдами */,
+      centeredSlides: false /* Отключение автоматического центрирования слайдов */,
+      loop: false /* Оставляем как пример: не включать зацикливание */,
+      slidesOffsetAfter: 1500,
+    });
+
+    teachSlider.on("activeIndexChange", (e) => changeOpasity(e, teachSlides));
+    caseSlider.on("activeIndexChange", (e) => changeOpasity(e, caseSlides));
+  }, 1000);
 
   document.querySelectorAll(".anchor").forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
@@ -77,10 +109,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let startPosition;
   let endPosition;
+  let blockHeight;
+  let sectionHeight;
   const blockBreakpoints = [];
   setTimeout(() => {
     console.log(blockBreakpoints);
 
+    //инициализация высоты блоков слайдера
     animatedBlocksWrappers.forEach((item, i) => {
       let k = i == 0 ? 1 : 0.75;
       const inner = item.querySelector(".animated-block");
@@ -91,21 +126,24 @@ window.addEventListener("DOMContentLoaded", () => {
       // inner.style.transition = "all 1s ease-out";
       inner.classList.add("duration-1000");
     });
-    const heights = Array.from(animatedBlocks).map(
-      (block) => block.offsetHeight,
-    );
 
-    console.dir(animatedSection);
+    //инициализация полосы прокрутки
+    //инициализация значений высоты для полосы прокрутки и координат слайдера
+    blockHeight = animatedSlider.offsetHeight;
+    sectionHeight = 4 * blockHeight;
+
+    //установка высоты для секции
+    animatedSection.style.height = sectionHeight + "px";
+
     startPosition = animatedSection.offsetTop;
     endPosition = animatedSection.offsetHeight + startPosition;
-    console.log("slider:h");
-    console.log(animatedSlider.offsetHeight);
+
+    console.log("высота" + blockHeight);
+    console.log("Начало" + startPosition + " Конец" + endPosition);
+
     blockBreakpoints[0] = startPosition;
     for (let i = 1; i < 6; i++) {
-      blockBreakpoints[i] =
-        ((animatedSection.offsetHeight - animatedSlider.offsetHeight) / 5) *
-          (i + 1) +
-        startPosition;
+      blockBreakpoints[i] = blockBreakpoints[i - 1] + blockHeight / 2;
     }
 
     console.log(blockBreakpoints);
@@ -142,10 +180,6 @@ window.addEventListener("DOMContentLoaded", () => {
     item.style.height = fullHeight * 0.75 + "px";
     inner.style.transform = "scale(0.75)";
     inner.style.opacity = "0.5";
-  };
-
-  const activeCurrent = () => {
-    animatedBlocks.forEach();
   };
 
   // setTimeout(() => makeActive(animatedBlocksWrappers[1]), 3000);
