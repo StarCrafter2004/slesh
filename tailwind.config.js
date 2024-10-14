@@ -58,6 +58,7 @@ module.exports = {
         blocks_mob: "#1F1F1F",
         upgrade_whyte: "#F3F3F3",
         gray10: "#C7C7C7",
+        faq: "#B5B5B5",
       },
     },
   },
