@@ -6,7 +6,23 @@
     <title>Vite App</title>
   </head>
   <body class="bg-bg_black font-rfdewi">
-    <section id="fist_section" class="relative h-full w-full overflow-hidden">
+    <div
+      class="absolute left-[0px] top-[0px] z-[-1] hidden h-[200%] w-full sm:block"
+    >
+      <video
+        muted
+        autoplay
+        playsinline
+        class="z-[-1] h-auto w-full object-cover"
+      >
+        <source src="/video/main_bg.mp4" type="video/mp4" />
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+    <section
+      id="fist_section"
+      class="relative h-full w-full overflow-x-hidden overflow-y-visible"
+    >
       <div
         class="absolute left-[60%] top-[-27px] z-[-1] h-full w-[200%] translate-x-[-50%] sm:hidden"
       >
@@ -15,19 +31,7 @@
           Ваш браузер не поддерживает видео.
         </video>
       </div>
-      <div
-        class="absolute left-[0px] top-[0px] z-[-1] hidden h-auto w-full sm:block"
-      >
-        <video
-          muted
-          autoplay
-          playsinline
-          class="z-[-1] h-full w-auto object-cover"
-        >
-          <source src="/video/main_bg.mp4" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
+
       <div class="fixed top-[14px] z-[10] w-full px-[15px]">
         <header
           class="container z-10 mx-auto mb-[74px] flex h-[42px] w-full flex-row justify-between rounded-[30px] bg-white bg-opacity-[.18] p-[4px] px-[9] pl-[8px] backdrop-blur-md sm:h-[54px] sm:w-[580px] sm:p-[10px] md:w-[750px]"
@@ -1382,7 +1386,7 @@
           class="flex flex-col gap-[10px] text-ultrablack lg:grid lg:auto-rows-auto lg:grid-cols-2"
         >
           <div
-            class="bg-upgrade_whyte rounded-[16px] px-[17px] py-[16px] sm:flex sm:flex-col sm:justify-between sm:px-[26px] sm:py-[30px]"
+            class="rounded-[16px] bg-upgrade_whyte px-[17px] py-[16px] sm:flex sm:flex-col sm:justify-between sm:px-[26px] sm:py-[30px]"
           >
             <div>
               <div class="mb-[10px] flex flex-row items-center justify-between">
@@ -1500,7 +1504,7 @@
                 4 900 ₽/месяц
               </div>
               <div
-                class="text-gray10 mb-[12px] text-[14px] font-normal leading-[16px] sm:text-[18px] sm:leading-[22px] se:text-[12px]"
+                class="mb-[12px] text-[14px] font-normal leading-[16px] text-gray10 sm:text-[18px] sm:leading-[22px] se:text-[12px]"
               >
                 <span class="text-ultrawhite">В месяц</span> без % при рассрочке
                 на 24 мес.
@@ -1512,7 +1516,7 @@
                   -30%
                 </div>
                 <div
-                  class="trait text-gray10 relative text-[14px] sm:text-[18px] sm:leading-[22px]"
+                  class="trait relative text-[14px] text-gray10 sm:text-[18px] sm:leading-[22px]"
                 >
                   успей до 16 июля <br />
                   8900 ₽/месяц
@@ -1722,7 +1726,7 @@
             </div>
           </div>
           <div
-            class="accordion_content text-faq mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_content mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
@@ -1744,7 +1748,7 @@
             </div>
           </div>
           <div
-            class="accordion_content text-faq mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_content mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
@@ -1766,7 +1770,7 @@
             </div>
           </div>
           <div
-            class="accordion_content text-faq mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_content mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
@@ -1789,7 +1793,7 @@
             </div>
           </div>
           <div
-            class="accordion_content text-faq mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_content mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
@@ -1811,7 +1815,7 @@
             </div>
           </div>
           <div
-            class="accordion_content text-faq mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_content mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
@@ -1833,7 +1837,7 @@
             </div>
           </div>
           <div
-            class="accordion_contentn text-faq mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_contentn mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
