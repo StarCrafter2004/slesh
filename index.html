@@ -1277,7 +1277,7 @@
         <div class="swiper-wrapper pl-[15px] lg:pl-[80px]">
           <div class="swiper-slide case-slide max-w-[270px] sm:max-w-[528px]">
             <div
-              class="case-video relative mb-[20px] h-[284px] w-full overflow-hidden rounded-[20px] bg-gray_04 sm:mb-[26px]"
+              class="case-video relative mb-[20px] hidden h-[284px] w-full overflow-hidden rounded-[20px] bg-gray_04 sm:mb-[26px] sm:block"
             >
               <button
                 class="absolute bottom-[9px] right-[9px] z-10 h-[58px] w-[58px]"
@@ -1291,9 +1291,31 @@
               <video
                 muted
                 playsinline
+                class="relative left-[50%] top-0 hidden h-[100%] translate-x-[-50%] object-cover sm:block"
+              >
+                <source src="/video/gena.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает видео.
+              </video>
+            </div>
+            <div
+              class="case-video relative mb-[20px] h-[284px] w-full overflow-hidden rounded-[20px] bg-gray_04 sm:mb-[26px] sm:hidden"
+            >
+              <button
+                class="absolute bottom-[9px] right-[9px] z-10 h-[58px] w-[58px]"
+              >
+                <img
+                  class="w-full transition-all duration-300"
+                  src="/img/play.svg"
+                  alt=""
+                />
+              </button>
+
+              <video
+                muted
+                playsinline
                 class="relative left-[50%] top-0 h-[100%] translate-x-[-50%] object-cover"
               >
-                <source src="/video/man_2.mp4" type="video/mp4" />
+                <source src="/video/gena_mob.mp4" type="video/mp4" />
                 Ваш браузер не поддерживает видео.
               </video>
             </div>
@@ -1341,7 +1363,7 @@
                 playsinline
                 class="relative left-[50%] h-[100%] translate-x-[-50%] rounded-[20px] object-cover"
               >
-                <source src="/video/man_2.mp4" type="video/mp4" />
+                <source src="/video/zhanna.mp4" type="video/mp4" />
                 Ваш браузер не поддерживает видео.
               </video>
             </div>
@@ -1574,19 +1596,19 @@
                 <div class="lg:w-[49%]">
                   <div class="mb-[14px] flex flex-col gap-[8px]">
                     <input
-                      class="mt-[10px] h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
+                      class="mt-[10px] h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
                       type="text"
                       name="name"
                       placeholder="Имя"
                     />
                     <input
-                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
+                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
                       type="phone"
                       name="phone"
                       placeholder="Номер"
                     />
                     <input
-                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
+                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
                       type="text"
                       name="tg"
                       placeholder="tg @"
@@ -1837,7 +1859,7 @@
             </div>
           </div>
           <div
-            class="accordion_contentn mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
+            class="accordion_content mb-[8px] max-h-[0px] overflow-hidden text-[14px] leading-[18px] text-faq transition-all duration-[0.3s] ease-out sm:max-w-[80%] sm:text-[20px] sm:leading-[26px]"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
             repudiandae accusantium, vel et quasi tempora facere nulla officiis
@@ -1848,7 +1870,7 @@
       </div>
     </section>
 
-    <footer class="bg-footer_bg bg-cover bg-bottom">
+    <footer class="sm:bg-footer_bg_desk bg-footer_bg bg-cover bg-bottom">
       <div
         class="container mx-auto flex flex-col px-[16px] pb-[91px] pt-[45px] md:h-[262px] md:flex-row md:items-center md:justify-between md:p-[0] lg:px-[80px]"
       >

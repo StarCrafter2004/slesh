@@ -26,6 +26,7 @@ module.exports = {
         high: "url('/img/high.png')",
         free: "url('img/free.png')",
         footer_bg: "url('img/footer.png')",
+        footer_bg_desk: "url(img/footer_desc.png)",
       },
       fontFamily: {
         rfdewi: ["RFDewi"],
