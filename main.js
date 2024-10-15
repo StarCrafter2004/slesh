@@ -7,18 +7,14 @@ window.addEventListener("DOMContentLoaded", () => {
   // функция аккордеона
 
   setTimeout(() => {
-    initAccordeon();
+    initAnchors();
+    initVideoButtons();
+    initAnimatedBlocks();
+    initDrum();
+    initStageLine();
     initMobileSlider();
     initBottomSlider();
-    initAnchors();
-    initAnimatedBlocks();
-
-    initVideoButtons();
-
-    setTimeout(() => {
-      initDrum();
-      initStageLine();
-    }, 500);
+    initAccordeon();
   }, 1000);
 });
 

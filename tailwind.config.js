@@ -21,12 +21,11 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        back2: "url('/img/first_bg_mob.png')",
-        from_human: "url('/img/from_human.png')",
-        high: "url('/img/high.png')",
-        free: "url('img/free.png')",
-        footer_bg: "url('img/footer.png')",
-        footer_bg_desk: "url(img/footer_desc.png)",
+        from_human: "url('/img/from_human.webp')",
+        high: "url('/img/high.webp')",
+        free: "url('/img/free.webp')",
+        footer_bg: "url('/img/footer.webp')",
+        footer_bg_desk: "url(/img/footer_desc.webp)",
       },
       fontFamily: {
         rfdewi: ["RFDewi"],
