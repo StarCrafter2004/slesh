@@ -36,7 +36,7 @@
         <header
           class="container z-10 mx-auto mb-[74px] flex h-[42px] w-full flex-row justify-between rounded-[30px] bg-white bg-opacity-[.18] p-[4px] px-[9] pl-[8px] backdrop-blur-md sm:h-[54px] sm:w-[580px] sm:p-[10px] md:w-[750px]"
         >
-          <div class="flex h-full items-center">
+          <div class="ml-[10px] flex h-full items-center">
             <img class="w-[60px] sm:w-[84px]" src="/img/logo.svg" alt="" />
           </div>
           <ul
@@ -91,7 +91,9 @@
       <div
         class="drum-container container sticky top-[90px] mx-auto text-white"
       >
-        <div class="mb-[108px] text-[50px] leading-[50px]">
+        <div
+          class="mb-[108px] text-[50px] leading-[50px] sm:px-[16px] xl:px-[80px]"
+        >
           для тех, <span class="italic">кто</span>
         </div>
         <div
@@ -145,7 +147,7 @@
             </div>
             <div
               data-number="2"
-              class="drum-element text-[86px] leading-[70px] transition-all duration-700"
+              class="drum-element transition-all duration-700 sm:text-[61px] xl:text-[86px] xl:leading-[70px]"
             >
               /хочет быстро в айти
             </div>
@@ -332,227 +334,252 @@
       </div>
     </section>
 
-    <section class="pt-[50px] text-white sm:hidden">
-      <div class="swiper mySwiper h-full">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide h-auto">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Первое, что нужно сделать— это оставить заявку
+    <section class="mobile-slider-section pt-[50px] text-white sm:hidden">
+      <div class="sticky top-[70px]">
+        <div class="swiper mySwiper sticky h-full">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide h-auto">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[28px] font-semibold leading-[27px]">
+                  Первое, что нужно сделать— это оставить заявку
+                </div>
+                <div
+                  class="mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Мы свяжемся с тобой в течении 30 минут, чтобы уточнить все
+                  детали и точно понять твой запрос
+                </div>
+                <button
+                  href="#modal"
+                  class="anchor mb-[30px] h-[50px] w-full rounded-[60px] bg-white text-[16px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:hover:underline"
+                >
+                  Оставить заявку
+                </button>
+                <div class="flex w-full justify-center">
+                  <img class="w-[66%] text-center" src="/img/bid.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide h-auto">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[28px] font-semibold leading-[27px]">
+                  Подберем тебе ментора исходя из 20 критериев
+                </div>
+                <div
+                  class="text mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Нам важно, что было комфортно с ментором и он точно решил твою
+                  задачу. Именно поэтому сделали детальную систему, которая
+                  подберет нужного человека по вайбу, скиллам и даже юмору)
+                </div>
+                <div class="flex w-full justify-center">
+                  <img class="w-full text-center" src="/img/skill.svg" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[28px] font-semibold leading-[27px]">
+                  Организуем звонок на 2 часа, где ментор разберет твои сильные
+                  и слабые стороны
+                </div>
+                <div
+                  class="text mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Это не интервью с жестким разбором, а кайфовая беседа с
+                  человеком, который хочет именно помочь. Даже если ты ни разу
+                  не дизайнил, будет о чем поговорить
+                </div>
+                <div class="mb-[30px] flex w-full justify-center">
+                  <img
+                    class="w-full text-center"
+                    src="/img/mentors.png"
+                    alt=""
+                  />
+                </div>
+                <button
+                  class="ac mb-[30px] flex h-[68px] w-full items-center justify-center rounded-[60px] bg-white pb-[] text-[16px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:hover:underline"
+                >
+                  <div class="max-w-[240px]">
+                    Посмотреть фрагмент звонка Маши и Леши
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[28px] font-semibold leading-[27px]">
+                  Составим PDP. Через 2 дня после звонка мы отправим тебе твой
+                  персональный план развития в Notion
+                </div>
+                <div
+                  class="text mb-[13px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Там будет находиться обратная связь по текущим навыком и план,
+                  по которому ты вместе с ментором будешь двигаться. Он
+                  обновляется в реальном времени и всегда можно будет
+                  подглядывать, чтобы отследить свой прогресс или вспомнить
+                  полезный материал.
+                </div>
+                <div class="w-full">
+                  <video
+                    muted
+                    loop
+                    autoplay
+                    playsinline
+                    class="w-full object-cover"
+                  >
+                    <source src="/video/cool_mob.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[28px] font-semibold leading-[27px]">
+                  Зовем на стажировку и даем заказы
+                </div>
+                <div
+                  class="text mb-[21px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Если ты новичок, то уже во время обучения вместе с ментором
+                  пройдешь стажировку в компанию, где тебе будет интересно, а
+                  самым старательным дадим коммерческие заказы.
+                </div>
+                <div class="w-full">
+                  <video
+                    muted
+                    loop
+                    autoplay
+                    playsinline
+                    class="w-full object-cover"
+                  >
+                    <source src="/video/kards_slider.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
+                  Приглашаем к единомышленникам
+                </div>
+                <div
+                  class="text mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Помимо этого пригласим в комьюнити таких же клёвых дизайнеров,
+                  как и ты. Мы постоянно куда‑то выходим, помогаем другу другу и
+                  веселимся в дискорде.
+                </div>
+                <div class="flex w-full justify-center">
+                  <img
+                    class="w-full text-center"
+                    src="/img/invite.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
+                  Последняя станция — итоговое ревью
+                </div>
+                <div
+                  class="text mb-[21px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  В конце обучения 4 разных ментора оценят твою работу и дадут
+                  развернутый фидбек по твоим навыкам в видео. <br />
+                  <br />
+                  Когда будем упаковывать CV (резюме), то вставим их, как отзывы
+                  о твоей профессиональной деятельности.
+                </div>
+                <div class="w-full">
+                  <video
+                    muted
+                    loop
+                    autoplay
+                    playsinline
+                    class="w-full object-cover"
+                  >
+                    <source src="/video/man.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                  </video>
+                </div>
+                <div class="flex w-full justify-center">
+                  <img class="w-full text-center" src="/img/.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="px-[16px] pt-[16px]">
+                <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
+                  + бонус
+                </div>
+                <div
+                  class="text mb-[21px] text-[14px] font-normal leading-[20px] text-gray_02"
+                >
+                  Мы сами упакуем твоё CV и портфолио не «как у всех». Резюме
+                  отшлифует опытный HR, а арт-директор студии вместе с тобой
+                  соберёт кейсы.
+                </div>
+                <button
+                  href="#modal"
+                  class="anchor mb-[21px] h-[50px] w-full rounded-[60px] bg-white text-[16px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:hover:underline"
+                >
+                  Оставить заявку
+                </button>
+                <div class="flex w-full justify-center">
+                  <img class="w-full text-center" src="/img/bonus.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination mx-[15px]"></div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="stage-section relative hidden overflow-hidden text-white sm:block"
+    >
+      <div class="container mx-auto pl-[40px] lg:px-[80px]">
+        <div
+          class="stage-line absolute z-[-2] h-[1000px] w-[1px] bg-gray_03"
+        ></div>
+        <div
+          class="stage-block relative flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
+        >
+          <div class="flex w-[55%] flex-col justify-center">
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                1
               </div>
               <div
-                class="mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Первое, что нужно сделать — это оставить заявку
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
               >
                 Мы свяжемся с тобой в течении 30 минут, чтобы уточнить все
                 детали и точно понять твой запрос
               </div>
               <button
                 href="#modal"
-                class="anchor mb-[30px] h-[50px] w-full rounded-[60px] bg-white text-[16px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:hover:underline"
+                class="anchor mb-[30px] h-[50px] w-[350px] rounded-[60px] bg-white text-[22px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:h-[37px] sm:w-[231px] sm:text-[14px] sm:hover:underline md:h-[45px] md:w-[278px] md:text-[17px] lg:h-[61px] lg:w-[372px] lg:text-[22px] xl:h-[75px] xl:w-[462px] xl:text-[28px] 2xl:h-[86px] 2xl:w-[525px] 2xl:text-[32px]"
               >
                 Оставить заявку
               </button>
-              <div class="flex w-full justify-center">
-                <img class="w-[66%] text-center" src="/img/bid.png" alt="" />
-              </div>
             </div>
-          </div>
-          <div class="swiper-slide h-auto">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Подберем тебе ментора исходя из 20 критериев
-              </div>
-              <div
-                class="text mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                Нам важно, что было комфортно с ментором и он точно решил твою
-                задачу. Именно поэтому сделали детальную систему, которая
-                подберет нужного человека по вайбу, скиллам и даже юмору)
-              </div>
-              <div class="flex w-full justify-center">
-                <img class="w-full text-center" src="/img/skill.svg" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Организуем звонок на 2 часа, где ментор разберет твои сильные и
-                слабые стороны
-              </div>
-              <div
-                class="text mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                Это не интервью с жестким разбором, а кайфовая беседа с
-                человеком, который хочет именно помочь. Даже если ты ни разу не
-                дизайнил, будет о чем поговорить
-              </div>
-              <div class="mb-[30px] flex w-full justify-center">
-                <img class="w-full text-center" src="/img/mentors.png" alt="" />
-              </div>
-              <button
-                class="ac mb-[30px] flex h-[68px] w-full items-center justify-center rounded-[60px] bg-white pb-[] text-[16px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:hover:underline"
-              >
-                <div class="max-w-[240px]">
-                  Посмотреть фрагмент звонка Маши и Леши
-                </div>
-              </button>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Составим PDP. Через 2 дня после звонка мы отправим тебе твой
-                персональный план развития в Notion
-              </div>
-              <div
-                class="text mb-[13px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                Там будет находиться обратная связь по текущим навыком и план,
-                по которому ты вместе с ментором будешь двигаться. Он
-                обновляется в реальном времени и всегда можно будет
-                подглядывать, чтобы отследить свой прогресс или вспомнить
-                полезный материал.
-              </div>
-              <div class="w-full">
-                <video
-                  muted
-                  loop
-                  autoplay
-                  playsinline
-                  class="w-full object-cover"
-                >
-                  <source src="/video/cool_mob.mp4" type="video/mp4" />
-                  Ваш браузер не поддерживает видео.
-                </video>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Зовем на стажировку и даем заказы
-              </div>
-              <div
-                class="text mb-[21px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                Если ты новичок, то уже во время обучения вместе с ментором
-                пройдешь стажировку в компанию, где тебе будет интересно, а
-                самым старательным дадим коммерческие заказы.
-              </div>
-              <div class="w-full">
-                <video
-                  muted
-                  loop
-                  autoplay
-                  playsinline
-                  class="w-full object-cover"
-                >
-                  <source src="/video/kards_slider.mp4" type="video/mp4" />
-                  Ваш браузер не поддерживает видео.
-                </video>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Приглашаем к единомышленникам
-              </div>
-              <div
-                class="text mb-[30px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                Помимо этого пригласим в комьюнити таких же клёвых дизайнеров,
-                как и ты. Мы постоянно куда‑то выходим, помогаем другу другу и
-                веселимся в дискорде.
-              </div>
-              <div class="flex w-full justify-center">
-                <img class="w-full text-center" src="/img/invite.png" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                Последняя станция — итоговое ревью
-              </div>
-              <div
-                class="text mb-[21px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                В конце обучения 4 разных ментора оценят твою работу и дадут
-                развернутый фидбек по твоим навыкам в видео. <br />
-                <br />
-                Когда будем упаковывать CV (резюме), то вставим их, как отзывы о
-                твоей профессиональной деятельности.
-              </div>
-              <div class="w-full">
-                <video
-                  muted
-                  loop
-                  autoplay
-                  playsinline
-                  class="w-full object-cover"
-                >
-                  <source src="/video/man.mp4" type="video/mp4" />
-                  Ваш браузер не поддерживает видео.
-                </video>
-              </div>
-              <div class="flex w-full justify-center">
-                <img class="w-full text-center" src="/img/.png" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="px-[16px] pt-[16px]">
-              <div class="mb-[8px] text-[24px] font-semibold leading-[27px]">
-                + бонус
-              </div>
-              <div
-                class="text mb-[21px] text-[14px] font-normal leading-[20px] text-gray_02"
-              >
-                Мы сами упакуем твоё CV и портфолио не «как у всех». Резюме
-                отшлифует опытный HR, а арт-директор студии вместе с тобой
-                соберёт кейсы.
-              </div>
-              <button
-                href="#modal"
-                class="anchor mb-[21px] h-[50px] w-full rounded-[60px] bg-white text-[16px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:hover:underline"
-              >
-                Оставить заявку
-              </button>
-              <div class="flex w-full justify-center">
-                <img class="w-full text-center" src="/img/bonus.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination mx-[15px]"></div>
-      </div>
-    </section>
-
-    <section class="hidden text-white sm:block">
-      <div class="container mx-auto pl-[40px] lg:px-[80px]">
-        <div
-          class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
-        >
-          <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Первое, что нужно сделать — это оставить заявку
-            </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Мы свяжемся с тобой в течении 30 минут, чтобы уточнить все детали
-              и точно понять твой запрос
-            </div>
-            <button
-              href="#modal"
-              class="anchor mb-[30px] h-[50px] w-[350px] rounded-[60px] bg-white text-[22px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:h-[37px] sm:w-[231px] sm:text-[14px] sm:hover:underline md:h-[45px] md:w-[278px] md:text-[17px] lg:h-[61px] lg:w-[372px] lg:text-[22px] xl:h-[75px] xl:w-[462px] xl:text-[28px] 2xl:h-[86px] 2xl:w-[525px] 2xl:text-[32px]"
-            >
-              Оставить заявку
-            </button>
           </div>
 
           <div class="flex w-[41%] items-center">
@@ -567,23 +594,33 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Подберем тебе ментора исходя из 20 критериев
-            </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Нам важно, что было комфортно с ментором и он точно решил твою
-              задачу. Именно поэтому сделали детальную систему, которая подберет
-              нужного человека по вайбу, скиллам и даже юмор)
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                2
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Подберем тебе ментора исходя из 20 критериев
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Нам важно, что было комфортно с ментором и он точно решил твою
+                задачу. Именно поэтому сделали детальную систему, которая
+                подберет нужного человека по вайбу, скиллам и даже юмор)
+              </div>
             </div>
           </div>
 
           <div class="flex w-[42%] items-center">
             <img
-              class="h-auto w-full object-contain"
+              class="h-auto w-full object-contain lg:translate-y-[15px] xl:translate-y-[20px]"
               src="/img/skill.svg"
               alt=""
             />
@@ -593,26 +630,37 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Организуем звонок <br />
-              на 2 часа, где ментор разберет твои сильные и слабые стороны
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                3
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Организуем звонок <br />
+                на 2 часа, где ментор разберет твои сильные и слабые стороны
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Это не интервью с жестким разбором, а кайфоваябеседа с
+                человеком, который хочет именно помочь. Даже если ты ни разу не
+                дизайнил, будет о чем поговорить
+              </div>
+              <button
+                href="#modal"
+                class="anchor mb-[30px] h-[60px] w-[90%] rounded-[60px] bg-white text-[20px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:h-[45px] sm:text-[12px] sm:hover:underline md:text-[16px] lg:h-[60px]"
+              >
+                Посмотреть фрагмент звонка Маши и Леши
+              </button>
             </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Это не интервью с жестким разбором, а кайфоваябеседа с человеком,
-              который хочет именно помочь. Даже если ты ни разу не дизайнил,
-              будет о чем поговорить
-            </div>
-            <button
-              href="#modal"
-              class="anchor mb-[30px] h-[60px] w-[90%] rounded-[60px] bg-white text-[20px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:h-[45px] sm:text-[12px] sm:hover:underline md:text-[16px] lg:h-[60px]"
-            >
-              Посмотреть фрагмент звонка Маши и Леши
-            </button>
           </div>
+
           <div class="flex w-[42%] items-center">
             <img
               class="h-auto w-full object-contain"
@@ -626,20 +674,30 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Составим PDP. Через 2 дня после звонка мы отправим тебе твой
-              персональный план развития в Notion
-            </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Там будет находиться обратная связь по текущим навыкам и план, по
-              которому вы вместе с ментором будете двигаться. <br /><br />
-              Он обновляется в реальном времени и всегда можно будет
-              подглядывать, чтобы отследить свой прогресс или вспомнить полезный
-              материал.
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                4
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Составим PDP. Через 2 дня после звонка мы отправим тебе твой
+                персональный план развития в Notion
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Там будет находиться обратная связь по текущим навыкам и план,
+                по которому вы вместе с ментором будете двигаться. <br /><br />
+                Он обновляется в реальном времени и всегда можно будет
+                подглядывать, чтобы отследить свой прогресс или вспомнить
+                полезный материал.
+              </div>
             </div>
           </div>
           <div class="flex w-[42%] items-center">
@@ -654,17 +712,27 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Зовем на стажировку и даем заказы
-            </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Если ты новичок, то уже во время обучения вместе с ментором
-              пройдешь стажировку в компанию, где тебе будет интересно, а самым
-              старательным дадим коммерческие заказы.
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                5
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Зовем на стажировку и даем заказы
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Если ты новичок, то уже во время обучения вместе с ментором
+                пройдешь стажировку в компанию, где тебе будет интересно, а
+                самым старательным дадим коммерческие заказы.
+              </div>
             </div>
           </div>
           <div class="flex w-[42%] items-center justify-center">
@@ -678,17 +746,27 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Приглашаем к единомышленникам
-            </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Помимо этого пригласим в комьюнити таких же клёвых дизайнеров,
-              как и ты. Мы постоянно куда‑то выходим, помогаем другу другу
-              и веселимся в дискорде.
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                6
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Приглашаем к единомышленникам
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Помимо этого пригласим в комьюнити таких же клёвых дизайнеров,
+                как и ты. Мы постоянно куда‑то выходим, помогаем другу другу
+                и веселимся в дискорде.
+              </div>
             </div>
           </div>
           <div class="flex w-[42%] items-center justify-center">
@@ -704,17 +782,27 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              Приглашаем к единомышленникам
-            </div>
-            <div
-              class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Помимо этого пригласим в комьюнити таких же клёвых дизайнеров,
-              как и ты. Мы постоянно куда‑то выходим, помогаем другу другу
-              и веселимся в дискорде.
+            <div class="relative">
+              <div
+                class="stage-hidden absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                7
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                Приглашаем к единомышленникам
+              </div>
+              <div
+                class="le text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[48px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Помимо этого пригласим в комьюнити таких же клёвых дизайнеров,
+                как и ты. Мы постоянно куда‑то выходим, помогаем другу другу
+                и веселимся в дискорде.
+              </div>
             </div>
           </div>
           <div class="flex w-[42%] items-center justify-center">
@@ -728,28 +816,38 @@
           class="flex flex-row justify-between sm:h-[340px] md:h-[410] lg:h-[550px] xl:h-[680px] 2xl:h-[768px]"
         >
           <div class="flex w-[55%] flex-col justify-center">
-            <div
-              class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
-            >
-              + бонус
+            <div class="relative">
+              <div
+                class="stage-hidden last absolute left-[-15px] z-[-1] h-full w-[30px] bg-bg_black"
+              ></div>
+              <div
+                class="absolute top-[-50px] text-[24px] font-normal text-gray_03"
+              >
+                8
+              </div>
+              <div
+                class="font-semibold sm:mb-[10px] sm:text-[25px] sm:leading-[27px] md:text-[30px] md:leading-[32px] lg:mb-[15px] lg:text-[40px] lg:leading-[44px] xl:text-[50px] xl:leading-[54px] 2xl:mb-[21px] 2xl:text-[57px] 2xl:leading-[62px]"
+              >
+                + бонус
+              </div>
+              <div
+                class="text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[42px] 2xl:text-[24px] 2xl:leading-[30px]"
+              >
+                Мы сами упакуем твоё CV и портфолио не «как у всех». Резюме
+                отшлифует опытный HR, а арт-директор студии вместе с тобой
+                соберёт взрывные кейсы.
+                <br /><br />
+                Совсем недавно в телеграм канале проводили воркшоп, где
+                разбирали резюме дизайнеров и рассказывали, как правильно
+                упаковаться, чтобы тебя 100% взяли на работу.
+              </div>
+              <button
+                href="#modal"
+                class="anchor mb-[30px] h-[60px] w-[90%] rounded-[60px] bg-white text-[20px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:h-[45px] sm:text-[12px] sm:hover:underline md:text-[16px] lg:h-[60px]"
+              >
+                Забрать шаблон бесплатно в ТГ-канале
+              </button>
             </div>
-            <div
-              class="text-[20px] font-normal leading-[25px] text-gray_02 sm:mb-[24px] sm:text-[12px] sm:leading-[16px] md:text-[12px] md:leading-[16px] lg:mb-[36px] lg:text-[17px] lg:leading-[21px] xl:text-[21px] xl:leading-[26px] 2xl:mb-[42px] 2xl:text-[24px] 2xl:leading-[30px]"
-            >
-              Мы сами упакуем твоё CV и портфолио не «как у всех». Резюме
-              отшлифует опытный HR, а арт-директор студии вместе с тобой соберёт
-              взрывные кейсы.
-              <br /><br />
-              Совсем недавно в телеграм канале проводили воркшоп, где разбирали
-              резюме дизайнеров и рассказывали, как правильно упаковаться, чтобы
-              тебя 100% взяли на работу.
-            </div>
-            <button
-              href="#modal"
-              class="anchor mb-[30px] h-[60px] w-[90%] rounded-[60px] bg-white text-[20px] font-semibold text-black transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:h-[45px] sm:text-[12px] sm:hover:underline md:text-[16px] lg:h-[60px]"
-            >
-              Забрать шаблон бесплатно в ТГ-канале
-            </button>
           </div>
           <div class="flex w-[42%] items-center justify-center">
             <img
@@ -1596,19 +1694,19 @@
                 <div class="lg:w-[49%]">
                   <div class="mb-[14px] flex flex-col gap-[8px]">
                     <input
-                      class="mt-[10px] h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
+                      class="mt-[10px] h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-[20px] text-placeholder_text text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
                       type="text"
                       name="name"
                       placeholder="Имя"
                     />
                     <input
-                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
+                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-[20px] text-placeholder_text text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
                       type="phone"
                       name="phone"
                       placeholder="Номер"
                     />
                     <input
-                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
+                      class="h-[52px] rounded-[10px] bg-gray_03 pb-[4px] pl-[19px] text-[20px] text-placeholder_text text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-[14px] placeholder:text-placeholder_text focus:border-none focus:outline-none active:border-none lg:h-[66px] lg:pt-[9px] lg:placeholder:text-[20px]"
                       type="text"
                       name="tg"
                       placeholder="tg @"

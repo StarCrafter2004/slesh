@@ -22,6 +22,15 @@
   background-color: white;
 }
 
+.stage-hidden {
+  height: calc(100% + 60px);
+  top: -60px;
+}
+.stage-hidden.last {
+  height: calc(150% + 60px);
+  top: -60px;
+}
+
 .mentor-slide {
   transition: all 500ms ease-in !important;
 }
