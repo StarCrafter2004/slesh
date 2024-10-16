@@ -135,15 +135,6 @@
   opacity: 0.5;
 }
 
-@font-face {
-  font-family: "RFDewi";
-  src:
-    url("/fonts/RFDewi-Regular.woff2") format("woff2"),
-    url("/fonts/RFDewi-Regular.woff") format("woff"),
-    url("/fonts/RFDewi-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
 .accordeon_plus::after {
   content: "";
   width: 100%;
@@ -206,6 +197,30 @@
   width: calc(100% - 30px) !important;
 }
 
+.swiper-slide {
+  height: auto !important;
+}
+
+@font-face {
+  font-family: "RFDewi";
+  src:
+    url("/fonts/RFDewi-Regular.woff2") format("woff2"),
+    url("/fonts/RFDewi-Regular.woff") format("woff"),
+    url("/fonts/RFDewi-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RFDewi";
+  src:
+    url("/fonts/RFDewi-Italic.woff2") format("woff2"),
+    url("/fonts/RFDewi-Italic.woff") format("woff"),
+    url("/fonts/RFDewi-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
 @font-face {
   font-family: "RFDewi";
   src:
@@ -214,10 +229,6 @@
     url("/fonts/RFDewi-Semibold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
-}
-
-.swiper-slide {
-  height: auto !important;
 }
 
 @font-face {

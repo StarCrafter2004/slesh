@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
     initMobileSlider();
     initBottomSlider();
     initAccordeon();
-  }, 1000);
+  }, 2000);
 });
 
 function initStageLine() {
@@ -39,12 +39,8 @@ function initStageLine() {
 
   stageLine.style.top = stageLineStartPosition + "px";
   console.log("Стартовая позиция" + lineSectionStartPosition);
-
   window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
-    if (scrollY >= lineSectionStartPosition) {
-      console.log(scrollY - lineSectionStartPosition);
-    }
   });
 
   function animate() {
@@ -53,6 +49,7 @@ function initStageLine() {
     if (stageLineHeight >= lineSectionEndPosition - stageLineStartPosition) {
       stageLineHeight = lineSectionEndPosition - stageLineStartPosition;
     }
+
     const line = document.querySelector(".stage-line");
     line.style.height = stageLineHeight + "px";
     requestAnimationFrame(animate);
@@ -77,6 +74,7 @@ function initMobileSlider() {
     autoHeight: false,
     freeMode: true,
     watchOverflow: true,
+    allowTouchMove: false,
   });
 
   //установка высоты блока
@@ -276,6 +274,11 @@ function initDrum() {
 
   const drumTextMax = window.getComputedStyle(drumItems[2]).fontSize;
   const drumTextMin = window.getComputedStyle(drumItems[1]).fontSize;
+  const drumLeadingMax = window.getComputedStyle(drumItems[2]).lineHeight;
+  const drumLeadingMin = window.getComputedStyle(drumItems[1]).lineHeight;
+  const offsetBottom = window.getComputedStyle(drumItems[2]).marginBottom;
+  console.log("offsetBottom" + offsetBottom);
+  console.log("drumLeadingMin: " + drumLeadingMin);
   const drumBlockHeight = drumContainer.offsetHeight;
   const drumSectionHeight = 6 * drumBlockHeight;
 
@@ -317,10 +320,15 @@ function initDrum() {
     //Измение параметров остального слайда
     currentItems[1].style.opacity = 0.25;
     currentItems[2].style.fontSize = drumTextMin;
+    currentItems[2].style.marginBottom = 0;
+    // currentItems[2].style.lineHeight = drumLeadingMin;
     currentItems[2].style.opacity = 0.5;
     currentItems[3].style.fontSize = drumTextMax;
+    currentItems[3].style.marginBottom = offsetBottom;
+    // currentItems[3].style.lineHeight = drumLeadingMax;
     currentItems[3].style.opacity = 1;
     currentItems[4].style.opacity = 0.5;
+
     currentItems[5].style.opacity = 0.25;
 
     //меняем текущий индекс
@@ -349,9 +357,14 @@ function initDrum() {
     currentItems[0].style.opacity = 0.25;
     currentItems[1].style.opacity = 0.5;
     currentItems[2].style.fontSize = drumTextMax;
+    currentItems[2].style.marginBottom = offsetBottom;
+    // currentItems[2].style.lineHeight = drumLeadingMax;
     currentItems[2].style.opacity = 1;
     currentItems[3].style.opacity = 0.5;
     currentItems[3].style.fontSize = drumTextMin;
+    currentItems[3].style.marginBottom = 0;
+
+    // currentItems[3].style.lineHeight = drumLeadingMin;
     currentItems[4].style.opacity = 0.25;
   }
   window.addEventListener("scroll", () => {
