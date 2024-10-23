@@ -1,21 +1,31 @@
-import Swiper from "swiper/bundle";
 import "./style.css";
+import Swiper from "swiper/bundle";
+import lozad from "lozad";
 
 // import styles bundle
 import "swiper/css/bundle";
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   // функция аккордеона
 
-  setTimeout(() => {
-    initAnchors();
-    initVideoButtons();
-    initAnimatedBlocks();
-    initDrum();
-    initStageLine();
-    initMobileSlider();
-    initBottomSlider();
-    initAccordeon();
-  }, 2000);
+  initAnchors();
+  initVideoButtons();
+  initAnimatedBlocks();
+  initDrum();
+  // Инициализируем lazyload
+  const observer = lozad(".lozad", {
+    rootMargin: "10px 0px", // syntax similar to that of CSS Margin
+    threshold: 0.1, // ratio of element convergence
+    enableAutoReload: true, // it will reload the new image when validating attributes changes
+  });
+  observer.observe();
+  // Загружаем важные медиа
+  // lazyLoadInstance.loadAll(document.querySelectorAll(".important-media"));
+  initStageLine();
+  initMobileSlider();
+
+  initBottomSlider();
+
+  initAccordeon();
 });
 
 function initStageLine() {
@@ -104,29 +114,62 @@ function initMobileSlider() {
 }
 
 function initBottomSlider() {
-  const initSliderOpacity = (slides) => {
+  const container = document
+    .querySelector("#mentor")
+    .querySelector(".container");
+  const wrappers = document.querySelectorAll(".swiper-wrapper");
+  let pageWidth = window.innerWidth;
+  let p = pageWidth >= 1024 ? 80 : 15;
+  let containerWidth = container.offsetWidth;
+  let padding = (pageWidth - containerWidth) / 2 + p;
+  wrappers.forEach((item) => {
+    item.style.padding = `0px ${padding}px 0px ${padding}px`;
+  });
+
+  window.addEventListener("resize", () => {
+    pageWidth = window.innerWidth;
+    p = pageWidth >= 1024 ? 80 : 15;
+    containerWidth = container.offsetWidth;
+    let padding = (pageWidth - containerWidth) / 2 + p;
+    wrappers.forEach((item) => {
+      item.style.padding = `0px ${padding}px 0px ${padding}px`;
+    });
+  });
+
+  const initSliderOpacity = (slides, opacity) => {
     slides.forEach((slide) => {
-      slide.style.opacity = 0.7;
+      slide.style.opacity = opacity;
     });
   };
 
   const changeOpasity = (e, slides) => {
-    const totalSlides = e.slides.length;
-
-    initSliderOpacity(slides);
-    slides[e.activeIndex].style.opacity = 1;
-
-    if (e.activeIndex === totalSlides - 1) {
-      e.allowSlideNext = false;
+    if (pageWidth >= 640) {
+      initSliderOpacity(slides, 1);
     } else {
-      e.allowSlideNext = true;
+      const totalSlides = e.slides.length;
+
+      initSliderOpacity(slides, 0.7);
+      slides[e.activeIndex].style.opacity = 1;
+
+      if (e.activeIndex === totalSlides - 1) {
+        e.allowSlideNext = false;
+      } else {
+        e.allowSlideNext = true;
+      }
     }
   };
 
   const teachSlides = document.querySelectorAll(".mentor-slide");
   const caseSlides = document.querySelectorAll(".case-slide");
-  initSliderOpacity(teachSlides);
-  initSliderOpacity(caseSlides);
+  const swiperWrapers = document.querySelectorAll(".swiper-wrapper");
+  if (pageWidth >= 640) {
+    initSliderOpacity(teachSlides, 1);
+    initSliderOpacity(caseSlides, 1);
+  } else {
+    initSliderOpacity(teachSlides, 0.7);
+    initSliderOpacity(caseSlides, 0.7);
+  }
+
   teachSlides[0].style.opacity = 1;
   caseSlides[0].style.opacity = 1;
 
@@ -199,6 +242,7 @@ function initAnimatedBlocks() {
   const animatedSection = document.querySelector(".blocks_section");
   const animatedSlider = document.querySelector("#animated-slider");
   const animatedBlocks = document.querySelectorAll(".animated-block");
+
   const animatedBlocksWrappers = document.querySelectorAll(
     ".animated-block_wrapper",
   );
@@ -211,6 +255,7 @@ function initAnimatedBlocks() {
 
     item.style.height = fullHeight + "px";
     inner.classList.add("duration-1000");
+    item.classList.add("duration-1000");
   });
 
   //инициализация значений высоты для полосы прокрутки и координат слайдера
@@ -233,6 +278,7 @@ function initAnimatedBlocks() {
     item.style.height = fullHeight + "px";
     inner.style.transform = "scale(1)";
     inner.style.opacity = "1";
+    console.log(item);
   };
 
   const makeDeactive = (item) => {
@@ -280,7 +326,7 @@ function initDrum() {
   console.log("offsetBottom" + offsetBottom);
   console.log("drumLeadingMin: " + drumLeadingMin);
   const drumBlockHeight = drumContainer.offsetHeight;
-  const drumSectionHeight = 6 * drumBlockHeight;
+  const drumSectionHeight = 4 * drumBlockHeight;
 
   let drumStartPosition = drumSection.offsetTop;
   const drumBreakpoints = [];
@@ -291,8 +337,12 @@ function initDrum() {
 
   drumBreakpoints[0] = drumStartPosition;
   for (let i = 1; i < 6; i++) {
-    drumBreakpoints[i] = drumBreakpoints[i - 1] + drumBlockHeight * 0.9;
+    drumBreakpoints[i] = drumBreakpoints[i - 1] + drumBlockHeight * 0.6;
   }
+  drumItems[1].classList.add("transition-all");
+  drumItems[1].classList.add("duration-700");
+  drumItems[2].classList.add("transition-all");
+  drumItems[2].classList.add("duration-700");
 
   const firstItemHeight = drumItems[0].offsetHeight;
 

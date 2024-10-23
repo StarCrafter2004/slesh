@@ -4,19 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/slesh.svg" type="image/x-icon" />
-    <title>Vite App</title>
+    <title>Слеш — менторство для дизайнеров</title>
   </head>
   <body class="bg-bg_black font-rfdewi">
     <div
-      class="absolute left-[0px] top-[0px] z-[-1] hidden h-[200%] w-full sm:block"
+      class="absolute left-[0px] top-[-10px] z-[-1] hidden h-[200%] w-full sm:block"
     >
       <video
         muted
-        autoplay
         playsinline
-        class="z-[-1] h-auto w-full object-cover"
+        autoplay
+        poster="poster/main_bg_poster.png"
+        data-src="/video/main_bg.mp4"
+        preload="none"
+        class="lozad important-media z-[-1] h-auto w-full object-cover"
       >
-        <source src="/video/main_bg.mp4" type="video/mp4" />
+        <source data-src="/video/main_bg.mp4" type="video/mp4" />
         Ваш браузер не поддерживает видео.
       </video>
     </div>
@@ -27,8 +30,14 @@
       <div
         class="absolute left-[60%] top-[-27px] z-[-1] h-full w-[200%] translate-x-[-50%] sm:hidden"
       >
-        <video muted autoplay playsinline class="z-[-1] h-[100%] object-cover">
-          <source src="/video/main_bg.mp4" type="video/mp4" />
+        <video
+          muted
+          playsinline
+          autoplay
+          data-src="/video/main_bg.mp4"
+          class="lozad important-media z-[-1] h-[100%] object-cover"
+        >
+          <source data-src="/video/main_bg.mp4" type="video/mp4" />
           Ваш браузер не поддерживает видео.
         </video>
       </div>
@@ -64,14 +73,18 @@
         <div
           class="container mx-auto flex flex-col items-center text-center text-white"
         >
-          <h1
-            class="mb-[30px] mt-[74px] text-[70px] font-semibold leading-[60px] tracking-[-1px] sm:mb-[39px] sm:text-[90px] sm:leading-[80px] md:text-[110px] md:leading-[100px] lg:text-[142px] lg:leading-[126px] se:text-[60px]"
-          >
-            <span class="font-druk">т</span><span class="font-notoserif">в</span
-            ><span class="tracking-[-15px]">о</span
-            ><span class="font-dotgothic tracking-[-15px]">й</span> ментор<br />
-            в дизайне
-          </h1>
+          <img
+            src="/img/h0_mob.svg"
+            class="mx-auto mb-[28px] mt-[66px] w-[335px] sm:hidden"
+            alt=""
+          />
+          <div class="mx-auto lg:w-[800px] xl:w-[897px]">
+            <img
+              src="/img/h0.svg"
+              class="mb-[39px] mt-[257px] hidden w-full sm:block"
+              alt=""
+            />
+          </div>
           <div
             class="mb-[40px] max-w-[250px] text-[20px] font-normal leading-[22px] sm:mb-[35px] sm:max-w-[570px] sm:text-[21px] sm:leading-[28px] md:max-w-[650px] md:text-[24px] md:leading-[30px] lg:max-w-[988px] lg:text-[36px] lg:leading-[43px]"
           >
@@ -146,13 +159,13 @@
             </div>
             <div
               data-number="1"
-              class="drum-element opacity-50 transition-all duration-700 sm:text-[25px] sm:leading-[28px] lg:text-[39px] lg:leading-[43px] xl:text-[57px] xl:leading-[63px]"
+              class="drum-element opacity-50 sm:text-[25px] sm:leading-[28px] lg:text-[39px] lg:leading-[43px] xl:text-[57px] xl:leading-[63px]"
             >
               /устал от массмаркета курсов
             </div>
             <div
               data-number="2"
-              class="drum-element transition-all duration-700 sm:mb-[2px] sm:text-[38px] sm:leading-[28px] lg:mb-[5px] lg:text-[60px] lg:leading-[43px] xl:mb-[10px] xl:text-[86px] xl:leading-[63px]"
+              class="drum-element sm:mb-[2px] sm:text-[38px] sm:leading-[28px] lg:mb-[5px] lg:text-[60px] lg:leading-[43px] xl:mb-[10px] xl:text-[86px] xl:leading-[63px]"
             >
               /хочет быстро в айти
             </div>
@@ -209,7 +222,7 @@
         >
           для тех, <span class="italic">кто</span>
         </div>
-        <div class="animated-block_wrapper duration-1000">
+        <div class="animated-block_wrapper">
           <div
             class="animated-block absolute w-full origin-top rounded-[10px] bg-white"
           >
@@ -225,7 +238,7 @@
             </div>
           </div>
         </div>
-        <div class="animated-block_wrapper duration-1000">
+        <div class="animated-block_wrapper">
           <div
             class="animated-block absolute w-full origin-top scale-75 rounded-[10px] bg-white opacity-[0.5]"
           >
@@ -242,7 +255,7 @@
             </div>
           </div>
         </div>
-        <div class="animated-block_wrapper duration-1000">
+        <div class="animated-block_wrapper">
           <div
             class="animated-block absolute w-full origin-top scale-75 rounded-[10px] bg-white opacity-[0.5]"
           >
@@ -260,7 +273,7 @@
             </div>
           </div>
         </div>
-        <div class="animated-block_wrapper duration-1000">
+        <div class="animated-block_wrapper">
           <div
             class="animated-block absolute w-full origin-top scale-75 rounded-[10px] bg-white opacity-[0.5]"
           >
@@ -278,7 +291,7 @@
             </div>
           </div>
         </div>
-        <div class="animated-block_wrapper duration-1000">
+        <div class="animated-block_wrapper">
           <div
             class="animated-block absolute w-full origin-top scale-75 rounded-[10px] bg-white opacity-[0.5]"
           >
@@ -308,9 +321,10 @@
             loop
             autoplay
             playsinline
-            class="z-[-1] w-full object-cover"
+            data-src="/video/star.mp4"
+            class="lozad z-[-1] w-full object-cover"
           >
-            <source src="/video/star.mp4" type="video/mp4" />
+            <source data-src="/video/star.mp4" type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
         </div>
@@ -438,9 +452,10 @@
                     loop
                     autoplay
                     playsinline
-                    class="w-full object-cover"
+                    data-src="/video/cool_mob.mp4"
+                    class="lozad w-full object-cover"
                   >
-                    <source src="/video/cool_mob.mp4" type="video/mp4" />
+                    <source data-src="/video/cool_mob.mp4" type="video/mp4" />
                     Ваш браузер не поддерживает видео.
                   </video>
                 </div>
@@ -464,9 +479,13 @@
                     loop
                     autoplay
                     playsinline
-                    class="w-full object-cover"
+                    data-src="/video/kards_slider.mp4"
+                    class="lozad w-full object-cover"
                   >
-                    <source src="/video/kards_slider.mp4" type="video/mp4" />
+                    <source
+                      data-src="/video/kards_slider.mp4"
+                      type="video/mp4"
+                    />
                     Ваш браузер не поддерживает видео.
                   </video>
                 </div>
@@ -513,9 +532,10 @@
                     loop
                     autoplay
                     playsinline
-                    class="w-full object-cover"
+                    data-src="/video/man.mp4"
+                    class="lozad w-full object-cover"
                   >
-                    <source src="/video/man.mp4" type="video/mp4" />
+                    <source data-src="/video/man.mp4" type="video/mp4" />
                     Ваш браузер не поддерживает видео.
                   </video>
                 </div>
@@ -714,8 +734,15 @@
             </div>
           </div>
           <div class="flex w-[42%] items-center">
-            <video muted loop autoplay playsinline class="w-full object-cover">
-              <source src="/video/cool.mp4" type="video/mp4" />
+            <video
+              data-src="/video/cool.mp4"
+              muted
+              loop
+              autoplay
+              playsinline
+              class="lozad w-full object-cover"
+            >
+              <source data-src="/video/cool.mp4" type="video/mp4" />
               Ваш браузер не поддерживает видео.
             </video>
           </div>
@@ -749,8 +776,15 @@
             </div>
           </div>
           <div class="flex w-[42%] items-center justify-center">
-            <video muted loop autoplay playsinline class="w-[60%] object-cover">
-              <source src="/video/kards_slider.mp4" type="video/mp4" />
+            <video
+              data-src="/video/kards_slider.mp4"
+              muted
+              loop
+              autoplay
+              playsinline
+              class="lozad w-[60%] object-cover"
+            >
+              <source data-src="/video/kards_slider.mp4" type="video/mp4" />
               Ваш браузер не поддерживает видео.
             </video>
           </div>
@@ -820,8 +854,15 @@
             </div>
           </div>
           <div class="flex w-[42%] items-center justify-center">
-            <video muted loop autoplay playsinline class="w-full object-cover">
-              <source src="/video/man.mp4" type="video/mp4" />
+            <video
+              data-src="/video/man.mp4"
+              muted
+              loop
+              autoplay
+              playsinline
+              class="lozad w-full object-cover"
+            >
+              <source data-src="/video/man.mp4" type="video/mp4" />
               Ваш браузер не поддерживает видео.
             </video>
           </div>
@@ -1065,9 +1106,10 @@
             loop
             autoplay
             playsinline
-            class="relative left-[50%] w-full max-w-[550px] translate-x-[-50%] object-cover"
+            data-src="/video/wewe.mp4"
+            class="lozad relative left-[50%] w-full max-w-[550px] translate-x-[-50%] object-cover"
           >
-            <source src="/video/wewe.mp4" type="video/mp4" />
+            <source data-src="/video/wewe.mp4" type="video/mp4" />
             Ваш браузер не поддерживает видео.
           </video>
         </div>
@@ -1083,9 +1125,9 @@
         </div>
       </div>
       <div class="swiper teach_slider">
-        <div class="swiper-wrapper pl-[15px] lg:pl-[80px]">
+        <div class="swiper-wrapper">
           <div
-            class="swiper-slide mentor-slide duration-00 max-w-[270px] pb-[12px] transition-all sm:max-w-[527px] sm:pb-[30px]"
+            class="swiper-slide mentor-slide max-w-[270px] pb-[12px] sm:max-w-[527px] sm:pb-[30px]"
           >
             <div class="flex h-[510px] flex-col justify-between sm:h-[610px]">
               <div>
@@ -1129,7 +1171,7 @@
             </div>
           </div>
           <div
-            class="swiper-slide mentor-slide duration-00 max-w-[270px] pb-[12px] transition-all sm:max-w-[527px] sm:pb-[30px]"
+            class="swiper-slide mentor-slide max-w-[270px] pb-[12px] sm:max-w-[527px] sm:pb-[30px]"
           >
             <div class="flex h-[510px] flex-col justify-between sm:h-[610px]">
               <div>
@@ -1171,7 +1213,7 @@
             </div>
           </div>
           <div
-            class="swiper-slide mentor-slide duration-00 max-w-[270px] pb-[12px] transition-all sm:max-w-[527px] sm:pb-[30px]"
+            class="swiper-slide mentor-slide max-w-[270px] pb-[12px] sm:max-w-[527px] sm:pb-[30px]"
           >
             <div class="flex h-[510px] flex-col justify-between sm:h-[610px]">
               <div>
@@ -1386,7 +1428,7 @@
         </div>
       </div>
       <div class="swiper case_slider">
-        <div class="swiper-wrapper pl-[15px] lg:pl-[80px]">
+        <div class="swiper-wrapper">
           <div class="swiper-slide case-slide max-w-[270px] sm:max-w-[528px]">
             <div class="flex h-[470px] flex-col justify-between sm:h-[590px]">
               <div>
@@ -1404,7 +1446,7 @@
                 <div
                   class="mb-[5px] text-[14px] font-normal leading-[20px] text-gray_02 sm:text-[18px] sm:leading-[22px]"
                 >
-                  450к - 3 млн
+                  450к &#8212; 3 млн
                 </div>
                 <div
                   class="mb-[15px] text-[14px] font-normal leading-[20px] text-white sm:mb-[21px] sm:max-w-[470px] sm:text-[20px] sm:leading-[26px]"
@@ -1440,7 +1482,7 @@
                 <div
                   class="mb-[5px] text-[14px] font-normal leading-[20px] text-gray_02 sm:text-[18px] sm:leading-[22px]"
                 >
-                  0к - 75к
+                  0к &#8212; 75к
                 </div>
                 <div
                   class="mb-[15px] text-[14px] font-normal leading-[20px] text-white sm:mb-[21px] sm:max-w-[470px] sm:text-[20px] sm:leading-[26px]"
@@ -1474,7 +1516,7 @@
                 <div
                   class="mb-[5px] text-[14px] font-normal leading-[20px] text-gray_02 sm:text-[18px] sm:leading-[22px]"
                 >
-                  0к - 80к
+                  0к &#8212; 80к
                 </div>
                 <div
                   class="mb-[15px] text-[14px] font-normal leading-[20px] text-white sm:mb-[21px] sm:max-w-[470px] sm:text-[20px] sm:leading-[26px]"
@@ -1507,7 +1549,7 @@
           class="flex flex-col gap-[10px] text-ultrablack lg:grid lg:auto-rows-auto lg:grid-cols-2"
         >
           <div
-            class="rounded-[16px] bg-upgrade_whyte px-[17px] py-[16px] sm:flex sm:flex-col sm:justify-between sm:px-[26px] sm:py-[30px]"
+            class="rounded-[26px] bg-upgrade_whyte px-[17px] py-[16px] sm:flex sm:flex-col sm:justify-between sm:px-[26px] sm:py-[30px]"
           >
             <div>
               <div class="mb-[10px] flex flex-row items-start justify-between">
@@ -1528,7 +1570,7 @@
                 База
               </div>
               <ul
-                class="mb-[12px] ml-[17px] flex list-outside list-disc flex-col gap-[5px] text-[14px] font-normal leading-[20px] sm:mb-[26px] sm:ml-[23px] sm:gap-[15px] sm:text-[18px] sm:leading-[22px]"
+                class="mb-[12px] ml-[17px] flex list-outside list-disc flex-col gap-[5px] text-[14px] font-normal leading-[20px] sm:mb-[26px] sm:ml-[23px] sm:gap-[15px] sm:text-[18px] sm:leading-[22px] xl:max-w-[517px]"
               >
                 <li>30 часов прокачки с ментором</li>
                 <li>Составление PDP (персональнго плана развития)</li>
@@ -1577,7 +1619,7 @@
             </div>
           </div>
           <div
-            class="flex flex-col justify-between rounded-[16px] border-[1px] border-white bg-high bg-cover px-[17px] py-[16px] text-ultrawhite sm:px-[26px] sm:py-[30px]"
+            class="flex flex-col justify-between rounded-[26px] border-[1px] border-white border-opacity-50 bg-high bg-cover px-[17px] py-[16px] text-ultrawhite sm:px-[26px] sm:py-[30px]"
           >
             <div>
               <div class="mb-[10px] flex flex-row items-start justify-between">
@@ -1663,7 +1705,8 @@
                   <div
                     class="mb-[20px] text-[24px] leading-[27px] text-white lg:text-[35px] lg:leading-[42px] xl:text-[50px] xl:leading-[50px]"
                   >
-                    запишись на первый звонок за 1499 ₽
+                    запишись на первый <br class="md:hidden" />
+                    звонок за 1499 ₽
                   </div>
                   <div class="mb-[20px] flex flex-col gap-[10px]">
                     <div
@@ -1693,7 +1736,7 @@
                       <div
                         class="text-[14px] font-normal leading-[16px] text-semywhite sm:text-[16px] sm:leading-[21px]"
                       >
-                        Без фидбека не оставим — <br />
+                        Без фидбека не оставим — <br class="sm:hidden" />
                         уже на колле поделимся обраткой, а после — конкретно под
                         тебя соберём личный план развития с полезными плюшками и
                         материалами.
@@ -1788,7 +1831,7 @@
               <a
                 href="https://t.me/slash_dream"
                 target="_blank"
-                class="flex h-[34px] w-full items-center justify-center rounded-[60px] bg-white text-[16px] font-semibold text-black opacity-[0.7] transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:sm:hover:underline md:hidden lg:block lg:h-[84px] lg:max-w-[350px] lg:text-[24px] xl:max-w-[476px]"
+                class="flex h-[34px] w-full items-center justify-center rounded-[60px] bg-white text-[16px] font-semibold text-black opacity-[0.7] transition-all duration-150 ease-out active:border-[2px] active:border-white active:bg-inherit active:text-white active:no-underline sm:sm:hover:underline md:hidden lg:flex lg:h-[84px] lg:max-w-[350px] lg:text-[24px] xl:max-w-[476px]"
               >
                 Написать
               </a>
@@ -2003,7 +2046,7 @@
       </div>
     </section>
 
-    <footer class="sm:bg-footer_bg_desk bg-footer_bg bg-cover bg-bottom">
+    <footer class="bg-footer_bg bg-cover bg-bottom sm:bg-footer_bg_desk">
       <div
         class="container mx-auto flex flex-col px-[16px] pb-[91px] pt-[45px] md:h-[262px] md:flex-row md:items-center md:justify-between md:p-[0] lg:px-[80px]"
       >
@@ -2038,6 +2081,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="/main.js"></script>
+    <script type="module" defer src="/main.js"></script>
   </body>
 </html>

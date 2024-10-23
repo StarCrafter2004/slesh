@@ -32,10 +32,10 @@
 }
 
 .mentor-slide {
-  transition: all 500ms ease-in !important;
+  transition: opacity 500ms ease-in !important;
 }
 .case-slide {
-  transition: all 500ms ease-in !important;
+  transition: opacity 500ms ease-in !important;
 }
 
 .trait::after {
@@ -248,32 +248,6 @@
     url("/fonts/RFDewi-Ultrabold.woff") format("woff"),
     url("/fonts/RFDewi-Ultrabold.ttf") format("truetype");
   font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "DrukCyr";
-  src:
-    url("/fonts/drukwidecyr-bold.woff2") format("woff2"),
-    url("/fonts/drukwidecyr-bold.woff") format("woff"),
-    url("/fonts/drukwidecyr-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "NotoSerifDisplay";
-  src: url("/fonts/NotoSerifDisplay-Italic-VariableFont_wdth,wght.ttf")
-    format("truetype");
-  font-weight: 100 900; /* Укажите диапазон веса, если шрифт его поддерживает */
-  font-stretch: 75% 125%; /* Укажите диапазон ширины, если шрифт его поддерживает */
-  font-style: italic; /* Поскольку это италик начертание */
-}
-
-@font-face {
-  font-family: "DotGothic";
-  src: url("/fonts/DotGothic16-Regular.ttf") format("truetype");
-  font-weight: 700;
   font-style: normal;
 }
 

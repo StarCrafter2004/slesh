@@ -17,6 +17,8 @@
     "vite": "^5.4.1"
   },
   "dependencies": {
-    "swiper": "^11.1.14"
+    "lozad": "^1.16.0",
+    "swiper": "^11.1.14",
+    "vanilla-lazyload": "^19.1.3"
   }
 }
