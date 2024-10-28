@@ -13,7 +13,19 @@ window.addEventListener("load", () => {
   initDrum();
   // Инициализируем lazyload
   const observer = lozad(".lozad", {
-    rootMargin: "10px 0px", // syntax similar to that of CSS Margin
+    loaded: (el) => {
+      console.log("loaded");
+      // Пытаемся запустить воспроизведение
+      el.play().catch(() => {
+        // Если autoplay заблокирован, воспроизводим видео при клике
+        setTimeout(() => {
+          el.play().catch(() => {
+            console.log("Video doesnt load");
+          });
+        }, 200);
+      });
+    },
+    rootMargin: "100px 0px", // syntax similar to that of CSS Margin
     threshold: 0.1, // ratio of element convergence
     enableAutoReload: true, // it will reload the new image when validating attributes changes
   });
@@ -48,7 +60,7 @@ function initStageLine() {
   let scrollY = 0;
 
   stageLine.style.top = stageLineStartPosition + "px";
-  console.log("Стартовая позиция" + lineSectionStartPosition);
+
   window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
   });
@@ -117,7 +129,7 @@ function initBottomSlider() {
   const container = document
     .querySelector("#mentor")
     .querySelector(".container");
-  const wrappers = document.querySelectorAll(".swiper-wrapper");
+  const wrappers = document.querySelectorAll(".swiper-wrapper-bottom");
   let pageWidth = window.innerWidth;
   let p = pageWidth >= 1024 ? 80 : 15;
   let containerWidth = container.offsetWidth;
@@ -278,7 +290,6 @@ function initAnimatedBlocks() {
     item.style.height = fullHeight + "px";
     inner.style.transform = "scale(1)";
     inner.style.opacity = "1";
-    console.log(item);
   };
 
   const makeDeactive = (item) => {
@@ -323,8 +334,7 @@ function initDrum() {
   const drumLeadingMax = window.getComputedStyle(drumItems[2]).lineHeight;
   const drumLeadingMin = window.getComputedStyle(drumItems[1]).lineHeight;
   const offsetBottom = window.getComputedStyle(drumItems[2]).marginBottom;
-  console.log("offsetBottom" + offsetBottom);
-  console.log("drumLeadingMin: " + drumLeadingMin);
+
   const drumBlockHeight = drumContainer.offsetHeight;
   const drumSectionHeight = 4 * drumBlockHeight;
 
