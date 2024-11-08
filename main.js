@@ -81,48 +81,171 @@ function initStageLine() {
 
 function initMobileSlider() {
   const mobileSliderSection = document.querySelector(".mobile-slider-section");
-  const mobileSliderElem = document.querySelector(".swiper-wrapper");
-  const mobileSliderSlide = document.querySelector(".swiper-slide");
+  const mobileSliderWrapper = document.querySelector(".mobile-wrapper");
+  const mobileSliderSlides = Array.from(
+    document.querySelectorAll(".mobile-slide"),
+  );
+
+  const paginationInner = document.querySelector(".pagination-inner");
+  const pagination = document.querySelector(".pagination");
+
   const mobileSliderStartPosition = mobileSliderSection.offsetTop;
-  const mobileSliderWidth = mobileSliderSlide.offsetWidth * 7;
-  const sliderHeight = mobileSliderElem.offsetHeight;
-  const mobileSliderSectionHeight = sliderHeight + mobileSliderWidth + 100;
-  const mobileSlider = new Swiper(".mySwiper", {
-    pagination: {
-      el: ".swiper-pagination",
-      type: "progressbar",
-      progressbarFillClass: "swiper-pagination-progressbar-fill-custom",
-    },
-    autoHeight: false,
-    freeMode: true,
-    watchOverflow: true,
-    allowTouchMove: false,
+  const sliderHeight = mobileSliderWrapper.offsetHeight;
+  const offset = 100;
+  const mobileSliderSectionHeight =
+    sliderHeight + offset * (mobileSliderSlides.length + 1);
+  let sliderScroll = 0;
+  let nearestSlidePosition = 0;
+  let isTouched = false;
+
+  window.addEventListener("touchstart", () => {
+    isTouched = true;
+    console.log("Пользователь касается экрана");
+    document.body.style.overflow = "";
   });
 
-  //установка высоты блока
+  window.addEventListener("touchend", () => {
+    isTouched = false;
+    console.log("Пользователь отпустил экран");
+  });
+  let nearestSlideIndex = 0;
+  let currentSlide = 0;
+
+  class MobileSlider {
+    constructor(index, slide, startPoint, endPoint) {
+      this.index = index;
+      this.slide = slide;
+      this.startPoint = startPoint;
+      this.endPoint = endPoint;
+    }
+    normalizeNumber(num) {
+      if (num <= this.startPoint) {
+        return 0;
+      }
+      if (num >= this.endPoint) {
+        return offset;
+      }
+      return num % offset; // Иначе берем остаток от деления на 100
+    }
+
+    setOpacity(scroll) {
+      let opacity;
+      if (scroll < 0) {
+        opacity = 0;
+      } else if (scroll >= breakpoints.at(-1)) {
+        if (this.index == currentSlide) {
+          opacity = 1;
+        } else {
+          opacity = 0;
+        }
+      } else if (this.index == currentSlide) {
+        if (scroll == this.startPoint) {
+          opacity = 0;
+        } else if (scroll == this.endPoint) {
+          opacity = 1;
+        } else {
+          opacity = (scroll % offset) / offset;
+        }
+      } else if (this.index + 1 == currentSlide) {
+        if (scroll == this.startPoint) {
+          opacity = 0;
+        }
+        if (scroll == this.endPoint) {
+          opacity = 1;
+        } else {
+          opacity = 1 - (scroll % offset) / offset;
+        }
+      } else {
+        opacity = 0;
+      }
+      this.slide.style.opacity = opacity;
+    }
+
+    setTop(scroll) {
+      let top = this.normalizeNumber(scroll);
+      this.slide.style.top = -top + offset + "px";
+    }
+  }
+  const breakpoints = [];
+  for (let i = 0; i < mobileSliderSlides.length + 1; i++) {
+    breakpoints[i] = i * offset;
+  }
+
+  const slides = mobileSliderSlides.map((slide, i) => {
+    return new MobileSlider(i, slide, breakpoints[i], breakpoints[i + 1]);
+  });
+
   mobileSliderSection.style.height = mobileSliderSectionHeight + "px";
 
   window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    animateMobileSlider(scrollY);
-  });
+    const scrollY = Math.round(window.scrollY);
+    sliderScroll = scrollY - mobileSliderStartPosition;
 
-  const animateMobileSlider = (scrollY) => {
-    const translateValue = -scrollY + mobileSliderStartPosition;
-    if (scrollY < mobileSliderStartPosition) {
-      mobileSlider.translateTo(0, 100, false, false);
-    }
-    if (scrollY > mobileSliderStartPosition) {
-      if (-translateValue < mobileSliderWidth) {
-        mobileSlider.translateTo(translateValue, 0, false, false);
-      } else {
-        mobileSlider.translateTo(-mobileSliderWidth, 100, false, false);
+    pagination.style.opacity = sliderScroll >= 0 ? 1 : 0;
+    const clampedScroll = Math.max(
+      0,
+      Math.min(sliderScroll, breakpoints.at(-1)),
+    );
+
+    const scrollPercent =
+      (clampedScroll / (offset * mobileSliderSlides.length)) * 100;
+    paginationInner.style.width = scrollPercent + "%";
+
+    for (let i = 0; i < mobileSliderSlides.length + 1; i++) {
+      if (
+        sliderScroll >= breakpoints[i] &&
+        sliderScroll <= breakpoints[i + 1]
+      ) {
+        currentSlide = i;
+      }
+      if (
+        sliderScroll >= breakpoints[i + 1] - offset / 2 &&
+        sliderScroll < breakpoints[i + 1] + offset / 2
+      ) {
+        if (nearestSlideIndex != i) {
+          console.log(i);
+        }
+        nearestSlideIndex = i;
+      } else if (
+        sliderScroll >= breakpoints[0] &&
+        sliderScroll < breakpoints[1]
+      ) {
+        nearestSlideIndex = 0;
+      } else if (
+        sliderScroll < breakpoints.at(-1) &&
+        sliderScroll >= breakpoints.at(-2) + offset / 2
+      ) {
+        nearestSlideIndex = mobileSliderSlides.length - 1;
+      } else if (
+        sliderScroll < breakpoints[0] ||
+        sliderScroll > breakpoints.at(-1)
+      ) {
+        nearestSlideIndex = -1;
       }
     }
-    mobileSlider.updateProgress();
-    mobileSlider.updateActiveIndex(); // обновляем активный слайд
-    mobileSlider.updateSlidesClasses();
-  };
+
+    nearestSlidePosition =
+      (nearestSlideIndex + 1) * offset + mobileSliderStartPosition;
+
+    slides.forEach((slide) => {
+      slide.setOpacity(sliderScroll);
+      slide.setTop(sliderScroll);
+    });
+  });
+
+  function scroll() {
+    console.log(nearestSlidePosition);
+
+    if (nearestSlideIndex != -1 && !isTouched) {
+      document.body.style.overflow = "hidden";
+      window.scrollTo({
+        top: nearestSlidePosition,
+        behavior: "smooth",
+      });
+    }
+    requestAnimationFrame(scroll);
+  }
+  scroll();
 }
 
 function initBottomSlider() {
