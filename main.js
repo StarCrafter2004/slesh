@@ -4,6 +4,7 @@ import lozad from "lozad";
 
 // import styles bundle
 import "swiper/css/bundle";
+let isAnchorActive = false;
 window.addEventListener("load", () => {
   // функция аккордеона
 
@@ -14,7 +15,6 @@ window.addEventListener("load", () => {
   // Инициализируем lazyload
   const observer = lozad(".lozad", {
     loaded: (el) => {
-      console.log("loaded");
       // Пытаемся запустить воспроизведение
       el.play().catch(() => {
         // Если autoplay заблокирован, воспроизводим видео при клике
@@ -33,7 +33,10 @@ window.addEventListener("load", () => {
   // Загружаем важные медиа
   // lazyLoadInstance.loadAll(document.querySelectorAll(".important-media"));
   initStageLine();
-  initMobileSlider();
+  const pageWidth = window.innerWidth;
+  if (pageWidth < 640) {
+    initMobileSlider();
+  }
 
   initBottomSlider();
 
@@ -91,7 +94,7 @@ function initMobileSlider() {
 
   const mobileSliderStartPosition = mobileSliderSection.offsetTop;
   const sliderHeight = mobileSliderWrapper.offsetHeight;
-  const offset = 100;
+  const offset = 300;
   const mobileSliderSectionHeight =
     sliderHeight + offset * (mobileSliderSlides.length + 1);
   let sliderScroll = 0;
@@ -100,15 +103,13 @@ function initMobileSlider() {
 
   window.addEventListener("touchstart", () => {
     isTouched = true;
-    console.log("Пользователь касается экрана");
     document.body.style.overflow = "";
   });
 
   window.addEventListener("touchend", () => {
     isTouched = false;
-    console.log("Пользователь отпустил экран");
   });
-  let nearestSlideIndex = 0;
+  let nearestSlideIndex = -1;
   let currentSlide = 0;
 
   class MobileSlider {
@@ -203,7 +204,6 @@ function initMobileSlider() {
         sliderScroll < breakpoints[i + 1] + offset / 2
       ) {
         if (nearestSlideIndex != i) {
-          console.log(i);
         }
         nearestSlideIndex = i;
       } else if (
@@ -234,10 +234,9 @@ function initMobileSlider() {
   });
 
   function scroll() {
-    console.log(nearestSlidePosition);
-
-    if (nearestSlideIndex != -1 && !isTouched) {
+    if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
       document.body.style.overflow = "hidden";
+
       window.scrollTo({
         top: nearestSlidePosition,
         behavior: "smooth",
@@ -331,6 +330,7 @@ function initAnchors() {
   document.querySelectorAll(".anchor").forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
+      isAnchorActive = true;
       const targetId = anchor.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
@@ -341,6 +341,9 @@ function initAnchors() {
           top: offsetPosition,
           behavior: "smooth",
         });
+        setTimeout(() => {
+          isAnchorActive = false;
+        }, 3000);
       }
     });
   });
