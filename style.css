@@ -38,6 +38,13 @@
   transition: opacity 500ms ease-in !important;
 }
 
+/* input:-internal-autofill-selected {
+  appearance: none !important;
+  background-color: #353535 !important;
+  background-image: #353535 !important;
+  color: inherit !important;
+} */
+
 .trait::after {
   content: "";
   position: absolute;

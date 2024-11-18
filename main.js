@@ -33,6 +33,7 @@ window.addEventListener("load", () => {
   // Загружаем важные медиа
   // lazyLoadInstance.loadAll(document.querySelectorAll(".important-media"));
   initStageLine();
+  initForm();
   const pageWidth = window.innerWidth;
   if (pageWidth < 640) {
     initMobileSlider();
@@ -610,4 +611,66 @@ function initVideoButtons() {
         playImg.style.opacity = 0;
       });
     });
+}
+
+function initForm() {
+  const form = document.querySelector("form");
+  const inputs = form.querySelectorAll("input");
+  console.log(inputs);
+  const phoneInput = form.querySelector('input[name="phone_number"]');
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent form submission to handle validation
+
+    let isValid = true;
+
+    // Check if all fields are filled
+    inputs.forEach((input) => {
+      if (input.value.trim() === "") {
+        isValid = false;
+        input.style.borderColor = "red";
+      } else {
+        input.style.borderColor = ""; // Reset border color if valid
+      }
+    });
+
+    // Validate phone input (simple regex for demonstration purposes)
+    const phonePattern =
+      /^(?:\+?\d{1,3}|8)?\s*\(?\d{3}\)?\s*\d{3}\s*(?:-|\s)?\d{2}\s*(?:-|\s)?\d{2}$/; // Accepts numbers with optional leading '+'
+    if (!phonePattern.test(phoneInput.value.trim())) {
+      isValid = false;
+      phoneInput.style.borderColor = "red";
+      phoneInput.style.borderWidth = 1 + "px";
+    } else {
+      phoneInput.style.borderColor = "";
+    }
+
+    inputs.forEach((item) => {
+      if (item.value == "") {
+        console.log("Пусто");
+        item.style.borderColor = "red";
+        item.style.borderWidth = 1 + "px";
+      }
+    });
+
+    if (isValid) {
+      const formData = new FormData(form);
+      fetch("/send_message", {
+        method: "POST",
+        body: formData,
+      });
+      form.reset();
+    } else {
+    }
+  });
+
+  // Add event listeners to remove red border when typing
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (input.value.trim() !== "") {
+        input.style.borderColor = "";
+        phoneInput.style.borderWidth = 0 + "px";
+      }
+    });
+  });
 }
