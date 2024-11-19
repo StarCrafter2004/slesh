@@ -2,6 +2,12 @@ import "./style.css";
 import Swiper from "swiper/bundle";
 import lozad from "lozad";
 
+import { gsap } from "gsap";
+
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
+
 // import styles bundle
 import "swiper/css/bundle";
 let isAnchorActive = false;
@@ -105,10 +111,33 @@ function initMobileSlider() {
   window.addEventListener("touchstart", () => {
     isTouched = true;
     document.body.style.overflow = "";
+    console.log(document.body.style.overflow);
   });
 
   window.addEventListener("touchend", () => {
     isTouched = false;
+    console.log("сука");
+
+    // if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
+    //   document.body.style.overflow = "hidden";
+    //   window.scrollTo({
+    //     top: nearestSlidePosition,
+    //     behavior: "smooth",
+    //   });
+    //   console.log(nearestSlideIndex);
+    // }
+
+    // document.body.style.top = "0";
+    // document.body.style.left = "0";
+    // document.body.style.right = "0";
+    // document.body.style.bottom = "0";
+
+    // gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
+    console.log(nearestSlidePosition);
+
+    // setTimeout(() => {
+    //   document.body.style.overflow = "";
+    // }, 500);
   });
   let nearestSlideIndex = -1;
   let currentSlide = 0;
@@ -234,16 +263,39 @@ function initMobileSlider() {
     });
   });
 
-  function scroll() {
+  const debounce = (fn, delay) => {
+    let timer;
+    return () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, arguments), delay);
+    };
+  };
+  const onScrollEnd = () => {
     if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
-      document.body.style.overflow = "hidden";
-
       window.scrollTo({
         top: nearestSlidePosition,
         behavior: "smooth",
       });
+      // gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
+      console.log(nearestSlideIndex);
     }
-    requestAnimationFrame(scroll);
+  };
+  window.addEventListener("scroll", debounce(onScrollEnd, 100));
+
+  function scroll() {
+    // console.log(document.body.style.overflow);
+
+    setTimeout(() => {
+      // if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
+      //   window.scrollTo({
+      //     top: nearestSlidePosition,
+      //     behavior: "smooth",
+      //   });
+      //   gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
+      //   console.log(nearestSlideIndex);
+      // }
+      requestAnimationFrame(scroll);
+    }, 1);
   }
   scroll();
 }
