@@ -107,37 +107,30 @@ function initMobileSlider() {
   let sliderScroll = 0;
   let nearestSlidePosition = 0;
   let isTouched = false;
+  let maxHeight = 0;
+  mobileSliderSlides.forEach((slide) => {
+    let inner = slide.querySelector("div");
+    if (inner.offsetHeight > maxHeight) {
+      maxHeight = inner.offsetHeight;
+    }
+  });
+
+  console.log(maxHeight);
 
   window.addEventListener("touchstart", () => {
     isTouched = true;
     document.body.style.overflow = "";
-    console.log(document.body.style.overflow);
   });
 
   window.addEventListener("touchend", () => {
     isTouched = false;
-    console.log("сука");
 
-    // if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
-    //   document.body.style.overflow = "hidden";
-    //   window.scrollTo({
-    //     top: nearestSlidePosition,
-    //     behavior: "smooth",
-    //   });
-    //   console.log(nearestSlideIndex);
-    // }
-
-    // document.body.style.top = "0";
-    // document.body.style.left = "0";
-    // document.body.style.right = "0";
-    // document.body.style.bottom = "0";
-
-    // gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
-    console.log(nearestSlidePosition);
-
-    // setTimeout(() => {
-    //   document.body.style.overflow = "";
-    // }, 500);
+    if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
+      window.scrollTo({
+        top: nearestSlidePosition,
+        behavior: "smooth",
+      });
+    }
   });
   let nearestSlideIndex = -1;
   let currentSlide = 0;
@@ -160,6 +153,9 @@ function initMobileSlider() {
     }
 
     setOpacity(scroll) {
+      // console.log(scroll + " " + currentSlide);
+      let counter = 0;
+
       let opacity;
       if (scroll < 0) {
         opacity = 0;
@@ -171,25 +167,35 @@ function initMobileSlider() {
         }
       } else if (this.index == currentSlide) {
         if (scroll == this.startPoint) {
+          // console.log(this.startPoint + " " + this.index + " ");
           opacity = 0;
-        } else if (scroll == this.endPoint) {
-          opacity = 1;
         } else {
-          opacity = (scroll % offset) / offset;
+          opacity = ((scroll % offset) / offset) * 2;
         }
       } else if (this.index + 1 == currentSlide) {
-        if (scroll == this.startPoint) {
-          opacity = 0;
-        }
-        if (scroll == this.endPoint) {
+        //console.log(this.startPoint + " " + this.index + " 2");
+        if (
+          scroll >= this.startPoint + offset &&
+          scroll <= this.endPoint - offset / 2 + offset
+        ) {
           opacity = 1;
+          counter += 1;
+        } else if (scroll == this.endPoint) {
+          opacity = 1;
+          counter += 10;
         } else {
-          opacity = 1 - (scroll % offset) / offset;
+          opacity = 3 - ((scroll % offset) / offset) * 4;
+          console.log(opacity);
+          counter += 100;
+          // opacity = 1;
         }
       } else {
         opacity = 0;
       }
       this.slide.style.opacity = opacity;
+      if (counter > 0) {
+        console.log("counter " + counter);
+      }
     }
 
     setTop(scroll) {
@@ -277,25 +283,12 @@ function initMobileSlider() {
         behavior: "smooth",
       });
       // gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
-      console.log(nearestSlideIndex);
     }
   };
   window.addEventListener("scroll", debounce(onScrollEnd, 100));
 
   function scroll() {
     // console.log(document.body.style.overflow);
-
-    setTimeout(() => {
-      // if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
-      //   window.scrollTo({
-      //     top: nearestSlidePosition,
-      //     behavior: "smooth",
-      //   });
-      //   gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
-      //   console.log(nearestSlideIndex);
-      // }
-      requestAnimationFrame(scroll);
-    }, 1);
   }
   scroll();
 }
@@ -668,7 +661,7 @@ function initVideoButtons() {
 function initForm() {
   const form = document.querySelector("form");
   const inputs = form.querySelectorAll("input");
-  console.log(inputs);
+
   const phoneInput = form.querySelector('input[name="phone_number"]');
 
   form.addEventListener("submit", (event) => {
@@ -699,7 +692,6 @@ function initForm() {
 
     inputs.forEach((item) => {
       if (item.value == "") {
-        console.log("Пусто");
         item.style.borderColor = "red";
         item.style.borderWidth = 1 + "px";
       }
