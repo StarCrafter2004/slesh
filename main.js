@@ -156,6 +156,12 @@ function initMobileSlider() {
       // console.log(scroll + " " + currentSlide);
       let counter = 0;
 
+      if (this.index + 1 == currentSlide) {
+        this.slide.style.zIndex = 10;
+      } else {
+        this.slide.style.zIndex = 1;
+      }
+
       let opacity;
       if (scroll < 0) {
         opacity = 0;
