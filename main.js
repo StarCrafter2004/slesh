@@ -1,6 +1,7 @@
 import "./style.css";
 import Swiper from "swiper/bundle";
 import lozad from "lozad";
+import IMask from "imask";
 
 import { gsap } from "gsap";
 
@@ -95,27 +96,27 @@ function initMobileSlider() {
   const mobileSliderSlides = Array.from(
     document.querySelectorAll(".mobile-slide"),
   );
-
+  const inners = document.querySelectorAll(".mobile-slide-inner");
   const paginationInner = document.querySelector(".pagination-inner");
   const pagination = document.querySelector(".pagination");
 
   const mobileSliderStartPosition = mobileSliderSection.offsetTop;
   const sliderHeight = mobileSliderWrapper.offsetHeight;
-  const offset = 300;
+  const offset = 600;
   const mobileSliderSectionHeight =
     sliderHeight + offset * (mobileSliderSlides.length + 1);
   let sliderScroll = 0;
   let nearestSlidePosition = 0;
   let isTouched = false;
   let maxHeight = 0;
-  mobileSliderSlides.forEach((slide) => {
-    let inner = slide.querySelector("div");
-    if (inner.offsetHeight > maxHeight) {
-      maxHeight = inner.offsetHeight;
+  inners.forEach((slide) => {
+    console.log(slide.offsetHeight);
+    console.log(slide);
+    if (slide.offsetHeight > maxHeight) {
+      maxHeight = slide.offsetHeight;
     }
   });
-
-  console.log(maxHeight);
+  console.log("maxHeight: " + maxHeight);
 
   window.addEventListener("touchstart", () => {
     isTouched = true;
@@ -126,10 +127,11 @@ function initMobileSlider() {
     isTouched = false;
 
     if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
-      window.scrollTo({
-        top: nearestSlidePosition,
-        behavior: "smooth",
-      });
+      // window.scrollTo({
+      //   top: nearestSlidePosition,
+      //   behavior: "smooth",
+      // });
+      // gsap.to(window, { duration: 0.1, scrollTo: nearestSlidePosition });
     }
   });
   let nearestSlideIndex = -1;
@@ -153,15 +155,6 @@ function initMobileSlider() {
     }
 
     setOpacity(scroll) {
-      // console.log(scroll + " " + currentSlide);
-      let counter = 0;
-
-      if (this.index + 1 == currentSlide) {
-        this.slide.style.zIndex = 10;
-      } else {
-        this.slide.style.zIndex = 1;
-      }
-
       let opacity;
       if (scroll < 0) {
         opacity = 0;
@@ -173,35 +166,27 @@ function initMobileSlider() {
         }
       } else if (this.index == currentSlide) {
         if (scroll == this.startPoint) {
-          // console.log(this.startPoint + " " + this.index + " ");
           opacity = 0;
         } else {
           opacity = ((scroll % offset) / offset) * 2;
         }
       } else if (this.index + 1 == currentSlide) {
-        //console.log(this.startPoint + " " + this.index + " 2");
         if (
           scroll >= this.startPoint + offset &&
           scroll <= this.endPoint - offset / 2 + offset
         ) {
           opacity = 1;
-          counter += 1;
         } else if (scroll == this.endPoint) {
           opacity = 1;
-          counter += 10;
         } else {
           opacity = 3 - ((scroll % offset) / offset) * 4;
-          console.log(opacity);
-          counter += 100;
+
           // opacity = 1;
         }
       } else {
         opacity = 0;
       }
       this.slide.style.opacity = opacity;
-      if (counter > 0) {
-        console.log("counter " + counter);
-      }
     }
 
     setTop(scroll) {
@@ -259,8 +244,8 @@ function initMobileSlider() {
       ) {
         nearestSlideIndex = mobileSliderSlides.length - 1;
       } else if (
-        sliderScroll < breakpoints[0] ||
-        sliderScroll > breakpoints.at(-1)
+        sliderScroll < breakpoints[0] + offset / 2 ||
+        sliderScroll > breakpoints.at(-1) - offset / 2
       ) {
         nearestSlideIndex = -1;
       }
@@ -284,11 +269,11 @@ function initMobileSlider() {
   };
   const onScrollEnd = () => {
     if (nearestSlideIndex != -1 && !isTouched && !isAnchorActive) {
-      window.scrollTo({
-        top: nearestSlidePosition,
-        behavior: "smooth",
-      });
-      // gsap.to(window, { duration: 2, scrollTo: nearestSlidePosition });
+      // window.scrollTo({
+      //   top: nearestSlidePosition,
+      //   behavior: "smooth",
+      // });
+      gsap.to(window, { duration: 0.1, scrollTo: nearestSlidePosition });
     }
   };
   window.addEventListener("scroll", debounce(onScrollEnd, 100));
@@ -669,6 +654,12 @@ function initForm() {
   const inputs = form.querySelectorAll("input");
 
   const phoneInput = form.querySelector('input[name="phone_number"]');
+
+  var maskOptions = {
+    mask: "+7(000)000-00-00",
+    lazy: false,
+  };
+  var mask = new IMask(phoneInput, maskOptions);
 
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent form submission to handle validation

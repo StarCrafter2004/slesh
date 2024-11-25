@@ -44,6 +44,11 @@
   background-image: #353535 !important;
   color: inherit !important;
 } */
+.mobile-slide {
+  transition:
+    opacity 50ms,
+    top 50ms;
+}
 
 .trait::after {
   content: "";
