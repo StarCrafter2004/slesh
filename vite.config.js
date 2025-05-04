@@ -2,7 +2,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "",
+  base: "/<slesh>/",
   server: {
     proxy: {
       "/send_message": {
